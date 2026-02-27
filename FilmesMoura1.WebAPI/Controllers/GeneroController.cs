@@ -17,6 +17,8 @@ public class GeneroController : ControllerBase
     }
 
     [HttpGet("{id}")]
+
+    // Busca o gênero pelo id
     public IActionResult GetById(Guid id)
     {
         try
@@ -30,6 +32,8 @@ public class GeneroController : ControllerBase
     }
 
     [HttpGet]
+
+    // Busca todos os gêneros
     public IActionResult Get()
     {
         try
@@ -43,6 +47,8 @@ public class GeneroController : ControllerBase
     }
 
     [HttpPost]
+
+    // Cadastra um novo gênero
     public IActionResult Post(Genero novoGenero)
     {
         try
@@ -57,6 +63,8 @@ public class GeneroController : ControllerBase
     }
 
     [HttpPut("{id}")]
+
+    // Atualiza um gênero existente
     public IActionResult Put(Guid id, Genero generoAtualizado)
     {
         try
@@ -72,6 +80,8 @@ public class GeneroController : ControllerBase
     }
 
     [HttpPut]
+
+    // Atualiza um gênero existente usando o id
     public IActionResult Put(Genero generoAtualizado)
     {
         try
@@ -86,6 +96,8 @@ public class GeneroController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+
+    // Deleta um gênero existente
     public IActionResult Delete(Guid id)
     {
         try

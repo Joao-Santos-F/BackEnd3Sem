@@ -14,11 +14,13 @@ public class FilmeController : ControllerBase
 
     public FilmeController(IFilmeRepository filmeRepository)
     {
+
         _filmeRepository = filmeRepository;
     }
 
     [HttpPost]
 
+    // Posta o flme
     public IActionResult Post(Filme novoFilme)
     {
         try
@@ -33,6 +35,8 @@ public class FilmeController : ControllerBase
     }
 
     [HttpGet("{id}")]
+
+    //Busca o filme pelo id
     public IActionResult GetById(Guid id)
     {
         try
@@ -46,6 +50,8 @@ public class FilmeController : ControllerBase
     }
 
     [HttpGet]
+
+    // Busca todos os filmes
     public IActionResult Get()
     {
         try
@@ -59,6 +65,8 @@ public class FilmeController : ControllerBase
     }
 
     [HttpPut("{id}")]
+
+    // Atualiza o filme pelo id
     public IActionResult Put(Guid id, Filme filmeAtualizado)
     {
         try
@@ -73,6 +81,8 @@ public class FilmeController : ControllerBase
     }
 
     [HttpPut]
+
+    // Atualiza o filme pelo corpo da requisição
     public IActionResult Put(Filme filmeAtualizado)
     {
         try
@@ -87,6 +97,8 @@ public class FilmeController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+
+    // Deleta o filme pelo id
     public IActionResult Delete(Guid id)
     {
         try

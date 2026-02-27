@@ -13,6 +13,8 @@ public class GeneroRepository : IGeneroRepository
         _context = context;
     }
 
+    // Atualiza o genero pelo id
+
     public void AtualizarIdCorpo(Genero generoAtualizado)
     {
         try
@@ -34,6 +36,8 @@ public class GeneroRepository : IGeneroRepository
         }
     }
 
+
+    // Atualiza o genero pelo id passado na url
     public void AtualizarIdUrl(Guid id, Genero generoAtualizado)
     {
         try 
@@ -52,6 +56,8 @@ public class GeneroRepository : IGeneroRepository
         }
     }
 
+
+    // Busca um genero pelo id
     public Genero BuscarPorId(Guid id)
     {
         try
@@ -65,6 +71,8 @@ public class GeneroRepository : IGeneroRepository
         }
     }
 
+
+    // Cadastra um novo genero
     public void Cadastrar(Genero novoGenero)
     {
         try
@@ -78,6 +86,8 @@ public class GeneroRepository : IGeneroRepository
             throw;
         }
     }
+
+    // Deleta um genero pelo id
 
     public void Deletar(Guid id)
     {
@@ -98,6 +108,8 @@ public class GeneroRepository : IGeneroRepository
         }
     }
 
+
+    // Lista todos os generos
     public List<Genero> Listar()
     {
         try

@@ -14,6 +14,8 @@ public class FilmeRepository : IFilmeRepository
         _context = context;
     }
 
+
+    // Atualiza o filme pelo id e é chamado no controller
     public void AtualizarIdCorpo(Filme filmeAtualizado)
     {
         try
@@ -36,6 +38,8 @@ public class FilmeRepository : IFilmeRepository
         }
     }
 
+
+    // Atualiza o filme pelo id e é chamado no controller
     public void AtualizarIdUrl(Guid Id, Filme filmeAtualizado)
     {
         try
@@ -56,6 +60,7 @@ public class FilmeRepository : IFilmeRepository
         }
     }
 
+    // Busca o filme pelo id e é chamado no controller
     public Filme BuscarPorId(Guid Id)
     {
         try
@@ -69,6 +74,7 @@ public class FilmeRepository : IFilmeRepository
         }
     }
 
+    // Cadastra um novo filme e é chamado no controller
     public void Cadastrar(Filme novoFilme)
     {
         try
@@ -85,6 +91,7 @@ public class FilmeRepository : IFilmeRepository
         }
     }
 
+    // Deleta um filme pelo id e é chamado no controller
     public void Deletar(Guid Id)
     {
         try
@@ -104,6 +111,7 @@ public class FilmeRepository : IFilmeRepository
         }
     }
 
+    // Lista todos os filmes e é chamado no controller
     public List<Filme> Listar()
     {
         try
