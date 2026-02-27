@@ -313,3 +313,8 @@ C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\obj\Debug\net10.0\F
 C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\obj\Debug\net10.0\ref\FilmesMoura1.WebAPI.dll
 C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\bin\Debug\net10.0\BCrypt.Net-Next.dll
 C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\bin\Debug\net10.0\Microsoft.OpenApi.dll
+C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\obj\Debug\net10.0\FilmesMoura1.WebAPI.MvcApplicationPartsAssemblyInfo.cs

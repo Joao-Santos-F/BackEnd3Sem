@@ -41,10 +41,33 @@ builder.Services.AddAuthentication(options =>
             ValidAudience = "api_filmes"
         };
     });
+
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options => 
+{
+    options.SwaggerDoc("v1", new Microsoft.OpenApi.OpenApiInfo
+    {
+        Version = "v1",
+        Title = "Filmesm API",
+    });
+
+});
+
 // Adiciona serviço de Controllers
 builder.Services.AddControllers();
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger(options => { });
+
+    app.UseSwaggerUI(options => 
+    { 
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        options.RoutePrefix = string.Empty;
+    });
+}
 
 app.UseAuthentication();
 
