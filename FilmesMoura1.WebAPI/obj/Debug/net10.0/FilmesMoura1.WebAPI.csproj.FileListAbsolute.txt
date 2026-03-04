@@ -318,3 +318,4 @@ C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\bin\Debug\net10.0\S
 C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\obj\Debug\net10.0\FilmesMoura1.WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\54060195898\Desktop\BackEnd3Sem\FilmesMoura1.WebAPI\bin\Debug\net10.0\FilmesMoura1.WebAPI.staticwebassets.runtime.json

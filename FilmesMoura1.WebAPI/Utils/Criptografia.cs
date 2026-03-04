@@ -3,9 +3,9 @@
 public static class Criptografia
 {
     //Criptografa a senha utilazando o algoritmo BCrypt
-    public static string GerarHash(string senha)
+    public static string GerarHash(string valor)
     {
-        return BCrypt.Net.BCrypt.HashPassword(senha);
+        return BCrypt.Net.BCrypt.HashPassword(valor);
     }
 
     //Compara a senha do formulário com a senha do banco de dados utilizando o algoritmo BCrypt

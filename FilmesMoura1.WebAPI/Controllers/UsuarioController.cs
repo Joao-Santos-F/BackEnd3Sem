@@ -31,4 +31,5 @@ public class UsuarioController : ControllerBase
             return BadRequest(erro.Message);
         }
     }
+
 }

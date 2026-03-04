@@ -1,8 +1,11 @@
-﻿using FilmesMoura1.WebAPI.Interfaces;
+﻿using FilmesMoura1.WebAPI.DTO;
+using FilmesMoura1.WebAPI.Interfaces;
 using FilmesMoura1.WebAPI.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using System.Threading.Tasks;
 
 namespace FilmesMoura1.WebAPI.Controllers;
 
@@ -21,11 +24,41 @@ public class FilmeController : ControllerBase
     [HttpPost]
 
     // Posta o flme
-    public IActionResult Post(Filme novoFilme)
+    public async Task<IActionResult> Post([FromForm]FilmeDTO novoFilme)
     {
+        if (String.IsNullOrWhiteSpace(novoFilme.Titulo) && novoFilme.IdGenero != null)
+            return BadRequest("O título e gênero do filme são obrigatórios.");
+
+        Filme filme = new Filme();
+        if (novoFilme.Imagem != null && novoFilme.Imagem.Length > 0)
+        {
+            var extensao = Path.GetExtension(novoFilme.Imagem.FileName);
+            var nomeArquivo = $"{Guid.NewGuid()}{extensao}";
+
+            var pastaRelativa = "wwwroot/imagens";
+            var caminhoPasta = Path.Combine(Directory.GetCurrentDirectory(), pastaRelativa);
+
+            //garante que a pasta existe
+            if (!Directory.Exists(caminhoPasta))
+                Directory.CreateDirectory(caminhoPasta);
+
+            var caminhoCompleto = Path.Combine(caminhoPasta, nomeArquivo);
+
+            using (var stream = new FileStream(caminhoCompleto, FileMode.Create))
+            {
+                await novoFilme.Imagem.CopyToAsync(stream);
+            }
+
+            filme.Imagem = nomeArquivo;
+
+        }
+
+        filme.IdGenero = novoFilme.IdGenero.ToString();
+        filme.Titulo = novoFilme.Titulo!;
+
         try
         {
-            _filmeRepository.Cadastrar(novoFilme);
+            _filmeRepository.Cadastrar(filme);
             return StatusCode(201);
         }
         catch (Exception e)
@@ -49,6 +82,8 @@ public class FilmeController : ControllerBase
         }
     }
 
+
+    //[Authorize]
     [HttpGet]
 
     // Busca todos os filmes
@@ -67,11 +102,52 @@ public class FilmeController : ControllerBase
     [HttpPut("{id}")]
 
     // Atualiza o filme pelo id
-    public IActionResult Put(Guid id, Filme filmeAtualizado)
+    public async Task<IActionResult> Put(Guid id, FilmeDTO filme)
     {
+        var filmeBuscado = _filmeRepository.BuscarPorId(id);
+        if(filmeBuscado == null)
+            return NotFound("Filme não encontrado.");
+
+        if(!String.IsNullOrWhiteSpace(filme.Titulo))
+            filmeBuscado.Titulo = filme.Titulo;
+
+        if(filme.IdGenero != null && filme.IdGenero.ToString() != filmeBuscado.IdGenero)
+            filmeBuscado.IdGenero = filme.IdGenero.ToString();
+
+        if (filme.Imagem != null && filme.Imagem.Length != 0)
+        {
+            var pastaRelativa = "wwwroot/imagens";
+            var caminhoPasta = Path.Combine(Directory.GetCurrentDirectory(), pastaRelativa);
+
+            //deleta o arquivo antigo
+            if (!String.IsNullOrEmpty(filmeBuscado.Imagem))
+            {
+                var caminhoAntigo = Path.Combine(caminhoPasta, filmeBuscado.Imagem);
+
+                if(System.IO.File.Exists(caminhoAntigo))
+                    System.IO.File.Delete(caminhoAntigo);
+            }
+
+            //salva o novo arquivo
+            var extensao = Path.GetExtension(filme.Imagem.FileName);
+            var nomeArquivo = $"{Guid.NewGuid()}{extensao}";
+
+            if (!Directory.Exists(caminhoPasta))
+                Directory.CreateDirectory(caminhoPasta);
+
+            var caminhoCompleto = Path.Combine(caminhoPasta, nomeArquivo);
+            using (var stream = new FileStream(caminhoCompleto, FileMode.Create))
+            {
+                await filme.Imagem.CopyToAsync(stream);
+            }
+
+            filmeBuscado.Imagem = nomeArquivo;
+
+        }
+
         try
         {
-            _filmeRepository.AtualizarIdUrl(id, filmeAtualizado);
+            _filmeRepository.AtualizarIdUrl(id, filmeBuscado);
             return NoContent();
         }
         catch (Exception ex)
@@ -101,6 +177,21 @@ public class FilmeController : ControllerBase
     // Deleta o filme pelo id
     public IActionResult Delete(Guid id)
     {
+        var filmeBuscado = _filmeRepository.BuscarPorId(id);
+        if (filmeBuscado == null)
+            return NotFound("Filme não encontrado.");
+
+        var pastaRelativa = "wwwroot/imagens";
+        var caminhoPasta = Path.Combine(Directory.GetCurrentDirectory(), pastaRelativa);
+
+        //deleta o arquivo
+        if (!String.IsNullOrEmpty(filmeBuscado.Imagem))
+        {
+            var caminho = Path.Combine(caminhoPasta, filmeBuscado.Imagem);
+            if (System.IO.File.Exists(caminho))
+                System.IO.File.Delete(caminho);
+        }
+
         try
         {
             _filmeRepository.Deletar(id);
