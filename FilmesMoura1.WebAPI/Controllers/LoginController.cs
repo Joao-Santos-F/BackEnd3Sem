@@ -54,7 +54,7 @@ public class LoginController : ControllerBase
 
             //quarto - gerar o token
             var token = new JwtSecurityToken
-                (
+                (  
                     //emissor do token
                     issuer: "api_filmes",
                     //destinatário do token
