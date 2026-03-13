@@ -8,6 +8,5 @@ public interface ITipoUsuarioRepository
     TipoUsuario BuscarPorId(Guid Id);
     List<TipoUsuario> Listar();
     void Deletar(Guid Id);
-
     void Atualizar(Guid id, TipoUsuario tipoUsuario);
 }

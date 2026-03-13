@@ -60,13 +60,9 @@ public class InstituicaoController : ControllerBase
     [HttpPost]
     public IActionResult Cadastrar(InstituicaoDTO instituicao)
     {
-        var novaInstituicao = new Instituicao { 
-            Cnpj = instituicao.CNPJ!
 
         };
 
-        try
-        {
             _instituicaoRepository.Cadastrar(novaInstituicao);
             return StatusCode(201);
         }

@@ -65,8 +65,6 @@ public class TipoUsuarioController : ControllerBase
             Titulo = tipoUsuario.Titulo!
         };
 
-        try
-        {
             _tipoUsuarioRepository.Cadastrar(novoTipoUsuario);
             return StatusCode(201);
         }
