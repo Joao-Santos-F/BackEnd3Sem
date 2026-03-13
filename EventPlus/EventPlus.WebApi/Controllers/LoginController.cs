@@ -46,7 +46,7 @@ public class LoginController : ControllerBase
             };
 
             //segundo - definir a chave de acesso ao token
-            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("filmes-chave-autenticacao-webapi-dev"));
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("eventplus-chave-autenticacao-webapi-dev"));
 
             //terceiro - definir as credenciais do token
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -55,9 +55,9 @@ public class LoginController : ControllerBase
             var token = new JwtSecurityToken
                 (
                     //emissor do token
-                    issuer: "api_filmes",
+                    issuer: "api_eventplus",
                     //destinatário do token
-                    audience: "api_filmes",
+                    audience: "api_eventplus",
                     //dados definidos nas claims
                     claims: claims,
                     //tempo de expiração do token
