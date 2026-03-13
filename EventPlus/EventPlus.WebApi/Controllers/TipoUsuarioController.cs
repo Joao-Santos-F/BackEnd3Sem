@@ -1,4 +1,5 @@
 ﻿using EventPlus.WebApi.DTO;
+using EventPlus.WebApi.Interfaces;
 using EventPlus.WebApi.Models;
 using EventPlus.WebApi.Repositories;
 using Microsoft.AspNetCore.Http;
@@ -10,9 +11,9 @@ namespace EventPlus.WebApi.Controllers;
 [ApiController]
 public class TipoUsuarioController : ControllerBase
 {
-    private TipoUsuarioRepository _tipoUsuarioRepository;
+    private ITipoUsuarioRepository _tipoUsuarioRepository;
 
-    public TipoUsuarioController(TipoUsuarioRepository tipoUsuarioRepository)
+    public TipoUsuarioController(ITipoUsuarioRepository tipoUsuarioRepository)
     {
         _tipoUsuarioRepository = tipoUsuarioRepository;
     }
@@ -61,9 +62,12 @@ public class TipoUsuarioController : ControllerBase
     [HttpPost]
     public IActionResult Cadastrar(TipoUsuarioDTO tipoUsuario)
     {
-        var novoTipoUsuario = new TipoUsuario { 
-            Titulo = tipoUsuario.Titulo!
-        };
+        try
+        {
+            var novoTipoUsuario = new TipoUsuario
+            {
+                Titulo = tipoUsuario.Titulo!
+            };
 
             _tipoUsuarioRepository.Cadastrar(novoTipoUsuario);
             return StatusCode(201);
@@ -91,7 +95,7 @@ public class TipoUsuarioController : ControllerBase
         try
         {
             _tipoUsuarioRepository.Atualizar(Id, tipoUsuarioAtualizado);
-            return StatusCode(204);
+            return StatusCode(204, tipoUsuario);
         }
         catch (Exception ex)
         {
@@ -110,7 +114,7 @@ public class TipoUsuarioController : ControllerBase
         try
         {
             _tipoUsuarioRepository.Deletar(Id);
-            return StatusCode(204);
+            return NoContent();
         }
         catch (Exception ex)
         {

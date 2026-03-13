@@ -2,6 +2,7 @@ using EventPlus.WebApi.BdContextEvent;
 using EventPlus.WebApi.Interfaces;
 using EventPlus.WebApi.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,38 @@ builder.Services.AddDbContext<EventContext>(options => options.UseSqlServer
 
 //2. Registrar as repositories na injeção de dependência
 builder.Services.AddScoped<ITipoEventoRepository, TipoEventoRepository>();
+builder.Services.AddScoped<IInstituicaoRepository, InstituicaoRepository>();
+builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
+//Adicionar servicos de jwt Bearrer(forma de autenticação)
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = "JwtBearrer";
+    options.DefaultChallengeScheme = "JwtBearrer";
+
+})
+    .AddJwtBearer("JwtBearrer", options =>
+    {
+        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+        {
+            //valida quem esta solicitando o token
+            ValidateIssuer = true,
+            //valida quem esta recebendo o token
+            ValidateAudience = true,
+            //valida o tempo de expiração do token
+            ValidateLifetime = true,
+            //Forma de Criptografia e valida  a chave de autentificacao
+            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("eventplus-chave-autenticacao-webapi-dev")),
+            //Valida o tempo de expiracao do tonken
+            ClockSkew = TimeSpan.FromMinutes(5),
+            //nome do issuer (de onde esta vindo)
+            ValidIssuer = "api_eventplus",
+            //nome do audience(para onde esta indo)
+            ValidAudience = "api_eventplus"
+        };
+    });
+
 
 //Adiciona o Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -52,6 +85,16 @@ builder.Services.AddSwaggerGen(Options => {
 
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
@@ -71,7 +114,14 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+
+app.UseCors("CorsPolicy");
+
+app.UseStaticFiles();
+
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

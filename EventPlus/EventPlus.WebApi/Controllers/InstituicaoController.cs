@@ -61,7 +61,14 @@ public class InstituicaoController : ControllerBase
     public IActionResult Cadastrar(InstituicaoDTO instituicao)
     {
 
-        };
+        try
+        {
+            var novaInstituicao = new Instituicao
+            {
+                Cnpj = instituicao.Cnpj!,
+                Endereco = instituicao.Endereco!,
+                NomeFantasia = instituicao.NomeFantasia!
+            };
 
             _instituicaoRepository.Cadastrar(novaInstituicao);
             return StatusCode(201);
@@ -82,14 +89,14 @@ public class InstituicaoController : ControllerBase
     public IActionResult Atualizar(Guid id, InstituicaoDTO instituicao)
     {
         var instituicaoAtualizada = new Instituicao { 
-            Cnpj = instituicao.CNPJ!
+            Cnpj = instituicao.Cnpj!
 
         };
 
         try
         {
             _instituicaoRepository.Atualizar(id, instituicaoAtualizada);
-            return StatusCode(204);
+            return StatusCode(204, instituicao);
         }
         catch (Exception ex)
         {

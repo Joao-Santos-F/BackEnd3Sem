@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\54060195898\\Desktop\\BackEnd3Sem\\FilmesMoura1.WebAPI\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{66E4AC3C-6C0D-F71E-E4DF-255395538735}|FilmesMoura1.WebAPI.csproj|c:\\users\\54060195898\\desktop\\backend3sem\\filmesmoura1.webapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{66E4AC3C-6C0D-F71E-E4DF-255395538735}|FilmesMoura1.WebAPI.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{66E4AC3C-6C0D-F71E-E4DF-255395538735}|FilmesMoura1.WebAPI.csproj|c:\\users\\54060195898\\desktop\\backend3sem\\filmesmoura1.webapi\\controllers\\filmecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66E4AC3C-6C0D-F71E-E4DF-255395538735}|FilmesMoura1.WebAPI.csproj|solutionrelative:controllers\\filmecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{66E4AC3C-6C0D-F71E-E4DF-255395538735}|FilmesMoura1.WebAPI.csproj|c:\\users\\54060195898\\desktop\\backend3sem\\filmesmoura1.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{66E4AC3C-6C0D-F71E-E4DF-255395538735}|FilmesMoura1.WebAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66E4AC3C-6C0D-F71E-E4DF-255395538735}|FilmesMoura1.WebAPI.csproj|c:\\users\\54060195898\\desktop\\backend3sem\\filmesmoura1.webapi\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{66E4AC3C-6C0D-F71E-E4DF-255395538735}|FilmesMoura1.WebAPI.csproj|solutionrelative:controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{66E4AC3C-6C0D-F71E-E4DF-255395538735}|FilmesMoura1.WebAPI.csproj|c:\\users\\54060195898\\desktop\\backend3sem\\filmesmoura1.webapi\\utils\\criptografia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -62,11 +62,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "FilmeController.cs",
               "DocumentMoniker": "C:\\Users\\54060195898\\Desktop\\BackEnd3Sem\\FilmesMoura1.WebAPI\\Controllers\\FilmeController.cs",
               "RelativeDocumentMoniker": "Controllers\\FilmeController.cs",
@@ -87,8 +87,7 @@
               "RelativeToolTip": "DTO\\LoginDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T16:26:45.621Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T16:26:45.621Z"
             },
             {
               "$type": "Document",
@@ -100,12 +99,11 @@
               "RelativeToolTip": "Utils\\Criptografia.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T16:06:07.418Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T16:06:07.418Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UsuarioController.cs",
               "DocumentMoniker": "C:\\Users\\54060195898\\Desktop\\BackEnd3Sem\\FilmesMoura1.WebAPI\\Controllers\\UsuarioController.cs",
               "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
@@ -113,25 +111,24 @@
               "RelativeToolTip": "Controllers\\UsuarioController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwCMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T13:52:37.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T13:52:37.17Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "LoginController.cs",
               "DocumentMoniker": "C:\\Users\\54060195898\\Desktop\\BackEnd3Sem\\FilmesMoura1.WebAPI\\Controllers\\LoginController.cs",
               "RelativeDocumentMoniker": "Controllers\\LoginController.cs",
               "ToolTip": "C:\\Users\\54060195898\\Desktop\\BackEnd3Sem\\FilmesMoura1.WebAPI\\Controllers\\LoginController.cs",
               "RelativeToolTip": "Controllers\\LoginController.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAAADYAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-27T16:38:05.232Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\54060195898\\Desktop\\BackEnd3Sem\\FilmesMoura1.WebAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -139,12 +136,11 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T14:23:38.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T14:23:38.203Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "FilmeDTO.cs",
               "DocumentMoniker": "C:\\Users\\54060195898\\Desktop\\BackEnd3Sem\\FilmesMoura1.WebAPI\\DTO\\FilmeDTO.cs",
               "RelativeDocumentMoniker": "DTO\\FilmeDTO.cs",
@@ -152,8 +148,7 @@
               "RelativeToolTip": "DTO\\FilmeDTO.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAA1wAYAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T14:00:01.996Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-04T14:00:01.996Z"
             },
             {
               "$type": "Document",
@@ -165,8 +160,7 @@
               "RelativeToolTip": "Controllers\\GeneroController.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAEAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-25T18:39:15.567Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-25T18:39:15.567Z"
             },
             {
               "$type": "Document",
@@ -178,8 +172,7 @@
               "RelativeToolTip": "Interfaces\\IUsuarioRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T13:24:15.626Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-27T13:24:15.626Z"
             },
             {
               "$type": "Document",
@@ -191,8 +184,7 @@
               "RelativeToolTip": "Interfaces\\IFilmeRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T14:14:42.821Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T14:14:42.821Z"
             },
             {
               "$type": "Document",
@@ -204,8 +196,7 @@
               "RelativeToolTip": "Repositories\\FilmeRepository.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAwB4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-20T14:40:59.859Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T14:40:59.859Z"
             },
             {
               "$type": "Document",
