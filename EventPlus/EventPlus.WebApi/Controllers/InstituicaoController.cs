@@ -89,7 +89,9 @@ public class InstituicaoController : ControllerBase
     public IActionResult Atualizar(Guid id, InstituicaoDTO instituicao)
     {
         var instituicaoAtualizada = new Instituicao { 
-            Cnpj = instituicao.Cnpj!
+            Cnpj = instituicao.Cnpj!,
+            Endereco = instituicao.Endereco!,
+            NomeFantasia = instituicao.NomeFantasia!
 
         };
 

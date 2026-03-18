@@ -6,8 +6,8 @@ public interface IPresencaRepository
 {
     void Inscrever(Presenca presenca);
     void Deletar(Guid Id);
-    List<Presenca> Listar(Guid Id);
+    List<Presenca> Listar();
     Presenca BuscarPorId(Guid Id);
-    void Atualizar(Guid Id, Presenca presenca);
+    void Atualizar(Guid Id);
     List<Presenca> ListarMinhas(Guid IdUsuario);
 }

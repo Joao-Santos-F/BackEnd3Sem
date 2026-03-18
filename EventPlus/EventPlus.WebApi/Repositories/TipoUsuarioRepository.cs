@@ -13,9 +13,9 @@ public class TipoUsuarioRepository : ITipoUsuarioRepository
         _context = context;
     }
 
-    public void Atualizar(Guid id, TipoUsuario tipoUsuario)
+    public void Atualizar(Guid Id, TipoUsuario tipoUsuario)
     {
-        var TipoUsuarioBuscado = _context.TipoUsuarios.Find(id);
+        var TipoUsuarioBuscado = _context.TipoUsuarios.Find(Id);
 
         if (TipoUsuarioBuscado != null)
         {

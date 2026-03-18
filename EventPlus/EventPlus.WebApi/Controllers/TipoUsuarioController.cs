@@ -84,7 +84,7 @@ public class TipoUsuarioController : ControllerBase
     /// <param name="Id">Id do tipo de usuário a ser atualizado</param>
     /// <param name="tipoUsuario">Tipo de usuário com os tipos atualizados</param>
     /// <returns>Status code 204 e  o tipo de usuário atualizado</returns>
-    [HttpPut("{id}")]
+    [HttpPut("{Id}")]
     public IActionResult Atualizar(Guid Id, TipoUsuarioDTO tipoUsuario)
     {
         var  tipoUsuarioAtualizado = new TipoUsuario
