@@ -47,7 +47,9 @@ public class UsuarioRepository : IUsuarioRepository
     /// <returns>Retorna o usuario buscado</returns>
     public Usuario BurcarPorId(Guid IdUsuario)
     {
-        return _context.Usuarios.Include(usuario => usuario.IdTipoUsuarioNavigation).FirstOrDefault(usuario => usuario.IdUsuario == IdUsuario)!;
+        return _context.Usuarios
+            .Include(usuario => usuario.IdTipoUsuarioNavigation)
+            .FirstOrDefault(usuario => usuario.IdUsuario == IdUsuario)!;
     }
 
     /// <summary>
@@ -60,5 +62,10 @@ public class UsuarioRepository : IUsuarioRepository
 
         _context.Usuarios.Add(usuario);
         _context.SaveChanges();
+    }
+
+    public List<Usuario> Listar()
+    {
+        return _context.Usuarios.OrderBy(usuario => usuario.IdUsuario).ToList();
     }
 }

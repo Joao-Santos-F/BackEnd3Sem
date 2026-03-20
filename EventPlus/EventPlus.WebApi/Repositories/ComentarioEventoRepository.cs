@@ -1,6 +1,7 @@
 ﻿using EventPlus.WebApi.BdContextEvent;
 using EventPlus.WebApi.Interfaces;
 using EventPlus.WebApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EventPlus.WebApi.Repositories;
 
@@ -13,9 +14,9 @@ public class ComentarioEventoRepository : IComentarioEventoRepository
         _context = context;
     }
 
-    public ComentarioEvento BuscarPorIdUsuario(Guid idUsuario, Guid Idevento)
+    public ComentarioEvento BuscarPorIdUsuario(Guid idUsuario)
     {
-        throw new NotImplementedException();
+        return _context.ComentarioEventos.FirstOrDefault(c => c.IdUsuario == idUsuario)!;
     }
 
     public void Cadastrar(ComentarioEvento comentarioEvento)
@@ -35,13 +36,17 @@ public class ComentarioEventoRepository : IComentarioEventoRepository
         }
     }
 
-    public List<ComentarioEvento> Listar(Guid IdEvento)
+    public List<ComentarioEvento> Listar()
     {
         return _context.ComentarioEventos.OrderBy(ComentarioEvento => ComentarioEvento.Descricao).ToList();
     }
 
     public List<ComentarioEvento> ListarSomenteExibe(Guid IdEvento)
     {
-        throw new NotImplementedException();
+        return _context.ComentarioEventos
+            .Include(u => u.IdUsuarioNavigation)
+            .Where(c => c.Exibe == true && c.IdEvento == IdEvento)
+            .OrderBy(c => c.Descricao)
+            .ToList()!;
     }
 }
