@@ -17,6 +17,10 @@ public class ContatoController : ControllerBase
         _contatoRepository = contatoRepository;
     }
 
+    /// <summary>
+    /// EndPoint da API que faz a listagem dos contatos
+    /// </summary>
+    /// <returns>Os Contatos Cadastrados</returns>
     [HttpGet]
     public IActionResult Listar()
     {
@@ -30,6 +34,11 @@ public class ContatoController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// EndPoint da API que faz a listagem pelo ID do Contato específico
+    /// </summary>
+    /// <param name="Id">Id do Contato</param>
+    /// <returns>O Contato com a ID exata que foi chamada dentro do parametro</returns>
     [HttpGet("{Id}")]
     public IActionResult BuscarPorId(Guid Id)
     {
@@ -43,6 +52,11 @@ public class ContatoController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// EndPoint da API que cadastra um novo contato
+    /// </summary>
+    /// <param name="contato">Contato a ser cadastrado</param>
+    /// <returns>O contato foi cadastrado com sucesso, Status Code 201</returns>
     [HttpPost]
     public async Task<IActionResult> Cadastrar([FromForm] ContatoDTO contato)
     {
@@ -85,6 +99,12 @@ public class ContatoController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// EndPoint da API que atualiza os dados de um contato já existente
+    /// </summary>
+    /// <param name="Id">Id do contato a ser atualizado</param>
+    /// <param name="contato">Informacoes do contato a serem atualizadas</param>
+    /// <returns>O Contato atualizado e Status Code 204</returns>
     [HttpPut("{Id}")]
     public async Task<IActionResult> Atualizar(Guid Id, [FromForm] ContatoDTO contato)
     {
@@ -127,6 +147,11 @@ public class ContatoController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// EndPoint da API que deleta um contato já registrado
+    /// </summary>
+    /// <param name="Id">Id do contato a ser deletado</param>
+    /// <returns>Usuario deletado e NoContent</returns>
     [HttpDelete("{Id}")]
     public IActionResult Deletar(Guid Id)
     {
