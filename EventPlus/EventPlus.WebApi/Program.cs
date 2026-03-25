@@ -23,7 +23,7 @@ builder.Services.AddScoped<IComentarioEventoRepository, ComentarioEventoReposito
 
 //configuracao do Azure Content Safety
 var endpoint = "https://moderatorservice-joao.cognitiveservices.azure.com/";
-var apikey = "";
+var apikey = "6Al8f6Y0MdnHxTgrzRmzgWicaAbfmJ3LCtcirbcZKKuCgwhWR8mpJQQJ99CCACYeBjFXJ3w3AAAHACOGUUan";
 
 var client = new ContentSafetyClient(new Uri(endpoint), 
     new Azure.AzureKeyCredential(apikey)); 
