@@ -69,7 +69,6 @@ public class ContatoController : ControllerBase
                 IdTipoContato = contato.IdTipoContato
             };
 
-            // Lógica de salvar imagem extraída do seu exemplo
             if (contato.Imagem != null && contato.Imagem.Length > 0)
             {
                 var extensao = Path.GetExtension(contato.Imagem.FileName);
@@ -117,7 +116,6 @@ public class ContatoController : ControllerBase
                 IdTipoContato = contato.IdTipoContato
             };
 
-            // Lógica de salvar imagem no Atualizar
             if (contato.Imagem != null && contato.Imagem.Length > 0)
             {
                 var extensao = Path.GetExtension(contato.Imagem.FileName);
